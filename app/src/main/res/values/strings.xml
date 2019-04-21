@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Ancestry</string>
+    <string name="num_views">Number of Views: %1$s</string>
 </resources>

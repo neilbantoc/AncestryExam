@@ -8,7 +8,7 @@ import neilbantoc.ancestry.api.home.HomeApi
 import neilbantoc.ancestry.api.home.HomeApiResponse
 import neilbantoc.ancestry.data.models.Video
 
-class ApiServices(val homeApi: HomeApi, val courseApi: CourseApi) {
+class ApiServices(private val homeApi: HomeApi, private val courseApi: CourseApi) {
     fun getHomeFeed(): Single<HomeApiResponse> {
         return homeApi.getHomeFeed()
             .subscribeOn(Schedulers.io())

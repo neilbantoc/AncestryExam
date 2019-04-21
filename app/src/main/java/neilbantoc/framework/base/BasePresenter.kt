@@ -25,8 +25,10 @@ abstract class BasePresenter<S: ViewState, V : View<A>, A: ObservableViewActions
     }
 
     /**
-     * Subclasses must init databinding components by calling
-     * view.setUIEventHandler() and view.setState()
+     * Subclasses must init databinding components by performing these two lines of code:
+     *
+     * view.dataBinding.eventhandler = this
+     * view.dataBinding.viewstate = state
      */
     abstract fun initDatabinding()
 

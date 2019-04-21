@@ -1,3 +1,9 @@
 package neilbantoc.ancestry.data.models
 
-data class User(val id: Int, val name: String, val username: String)
+import com.google.gson.annotations.SerializedName
+
+data class User(
+    @SerializedName("id") val id: Int,
+    @SerializedName("name") val name: String,
+    @SerializedName("username") val username: String
+)

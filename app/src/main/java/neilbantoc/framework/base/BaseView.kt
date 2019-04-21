@@ -20,6 +20,8 @@ abstract class BaseView<S : ViewState, A : ObservableViewActions, D : ViewDataBi
         dataBinding = DataBindingUtil.bind<D>(layout)!!
     }
 
+    open fun onViewInitialized() { }
+
     override fun getContentView(): android.view.View {
         return layout
     }

@@ -12,6 +12,7 @@ import neilbantoc.framework.container.LifecycleContainer
 import neilbantoc.framework.container.LifecycleEvents
 
 
+
 open class BaseActivityContainer(): AppCompatActivity(), LifecycleContainer {
 
     init {
