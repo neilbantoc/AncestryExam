@@ -1,14 +1,14 @@
 package neilbantoc.framework.base
 
 import android.content.Context
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.disposables.Disposable
 import neilbantoc.framework.container.LifecycleContainer
 import neilbantoc.framework.container.LifecycleEvents
 import neilbantoc.framework.model.ViewState
 import neilbantoc.framework.presenter.Presenter
 import neilbantoc.framework.view.ObservableViewActions
 import neilbantoc.framework.view.View
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.disposables.Disposable
 
 abstract class BasePresenter<S: ViewState, V : View<A>, A: ObservableViewActions, C: LifecycleContainer> (val state: S, val view: V, val container: C): Presenter {
 
