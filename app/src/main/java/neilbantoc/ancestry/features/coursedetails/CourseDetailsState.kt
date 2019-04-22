@@ -7,5 +7,7 @@ import neilbantoc.framework.model.ViewState
 
 class CourseDetailsState : ViewState() {
     val courseId = ObservableField<Number>()
+    val bannerUrl = ObservableField<String>()
+    val courseTitle = ObservableField<String>()
     val videos = ObservableField<List<Video>>()
 }

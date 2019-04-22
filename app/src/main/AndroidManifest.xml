@@ -16,6 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".features.coursedetails.CourseDetailsContainer" />
+        <activity android:name=".features.coursedetails.CourseDetailsContainer"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 </manifest>

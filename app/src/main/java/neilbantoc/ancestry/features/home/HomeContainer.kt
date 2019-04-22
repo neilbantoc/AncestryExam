@@ -6,8 +6,8 @@ import neilbantoc.ancestry.base.BaseActivity
 import neilbantoc.ancestry.features.coursedetails.CourseDetailsContainer
 
 class HomeContainer(): HomeContract.Container, BaseActivity() {
-    override fun showDetail(courseId: Long) {
-        val intent = CourseDetailsContainer.createIntent(this, courseId)
+    override fun showDetail(courseId: Long, bannerUrl: String, title: String) {
+        val intent = CourseDetailsContainer.createIntent(this, courseId, bannerUrl, title)
         startActivity(intent)
     }
 

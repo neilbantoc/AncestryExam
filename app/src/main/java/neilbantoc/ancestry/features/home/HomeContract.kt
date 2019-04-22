@@ -16,6 +16,6 @@ class HomeContract {
     }
 
     interface Container: LifecycleContainer {
-        fun showDetail(courseId: Long)
+        fun showDetail(courseId: Long, bannerUrl: String, title: String)
     }
 }
