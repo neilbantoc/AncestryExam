@@ -8,6 +8,8 @@ import neilbantoc.framework.view.ViewAction
 class HomeContract {
     interface View: neilbantoc.framework.view.View<View.Actions> {
 
+        fun toastError(throwable: Throwable)
+
         interface EventHandler
 
         class Actions : ObservableViewActions {

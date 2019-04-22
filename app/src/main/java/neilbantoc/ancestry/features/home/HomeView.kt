@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,6 +23,10 @@ class HomeView() : BaseView<HomeState, HomeContract.View.Actions, ActivityMainBi
         super.initView(context)
         dataBinding.recyclerView.layoutManager = LinearLayoutManager(context)
         dataBinding.recyclerView.adapter = HomeAdapter(actions)
+    }
+
+    override fun toastError(throwable: Throwable) {
+        Toast.makeText(getContext(), throwable.message, Toast.LENGTH_LONG).show()
     }
 
     class HomeAdapter(val actions: HomeContract.View.Actions) : RecyclerView.Adapter<HomeAdapter.Holder>(), BindableAdapter<List<Course>?> {

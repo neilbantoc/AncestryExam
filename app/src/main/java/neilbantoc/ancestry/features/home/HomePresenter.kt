@@ -14,14 +14,16 @@ class HomePresenter(state: HomeState,  view: HomeView, container: HomeContainer,
         if (state.courses.get() == null) {
             addDisposable(apiServices.getHomeFeed().subscribe({ response ->
                 state.courses.set(response.courses)
-            }, {
-                it.printStackTrace()
+            }, { error ->
+                view.toastError(error)
             }))
         }
 
-        addDisposable(view.actions.onCourseClick.observable().subscribe { course ->
+        addDisposable(view.actions.onCourseClick.observable().subscribe ({ course ->
             container.showDetail(course.id, course.imageUrl, course.name)
-        })
+        }, { error ->
+            view.toastError(error)
+        }))
     }
 
 }

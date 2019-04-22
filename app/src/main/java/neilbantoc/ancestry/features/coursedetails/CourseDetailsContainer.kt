@@ -2,11 +2,13 @@ package neilbantoc.ancestry.features.coursedetails
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProviders
 import neilbantoc.ancestry.base.BaseActivity
 
-class CourseDetailsContainer : BaseActivity() {
+class CourseDetailsContainer : BaseActivity(), CourseDetailsContract.Container {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val state = ViewModelProviders.of(this).get(CourseDetailsState::class.java)
@@ -21,6 +23,12 @@ class CourseDetailsContainer : BaseActivity() {
         state.courseId.set(intent.getLongExtra(COURSE_ID, -1))
         state.bannerUrl.set(intent.getStringExtra(BANNER_URL))
         state.courseTitle.set(intent.getStringExtra(COURSE_TITLE))
+    }
+
+    override fun openUrl(url: String) {
+        val intent = Intent(Intent.ACTION_VIEW)
+        intent.data = Uri.parse(url)
+        startActivity(intent)
     }
 
     companion object {
