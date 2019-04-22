@@ -8,10 +8,10 @@ import com.squareup.picasso.Picasso
 @BindingAdapter("data")
 fun <T> setRecyclerViewProperties(recyclerView: RecyclerView, data: T) {
     if (recyclerView.adapter is BindableAdapter<*>) {
+        @Suppress("UNCHECKED_CAST")
         (recyclerView.adapter as BindableAdapter<T>).setData(data)
     }
 }
-
 
 @BindingAdapter("imageUrl")
 fun <T> setImageUrl(imageView: ImageView, url: String) {

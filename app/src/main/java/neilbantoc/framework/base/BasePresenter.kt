@@ -4,6 +4,7 @@ import android.content.Context
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import neilbantoc.framework.container.LifecycleContainer
+import neilbantoc.framework.container.LifecycleEvent
 import neilbantoc.framework.container.LifecycleEvents
 import neilbantoc.framework.model.ViewState
 import neilbantoc.framework.presenter.Presenter
@@ -42,10 +43,18 @@ abstract class BasePresenter<S: ViewState, V : View<A>, A: ObservableViewActions
         compositeDisposable.add(disposable)
     }
 
-    override fun accept(event: LifecycleEvents?) {
+    override fun accept(event: LifecycleEvent?) {
+        if (!container.equals(event?.target?.get())) {
+            return
+        }
+
         if (LifecycleEvents.ON_DESTROY.equals(event)) {
             compositeDisposable.clear()
         }
+
+        onLifecycleEvent(event?.event!!)
     }
+
+    open fun onLifecycleEvent(event: LifecycleEvents) {}
 
 }

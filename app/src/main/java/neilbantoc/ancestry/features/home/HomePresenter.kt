@@ -19,9 +19,9 @@ class HomePresenter(state: HomeState,  view: HomeView, container: HomeContainer,
             }))
         }
 
-        addDisposable(view.actions.onCourseClick.observable().subscribe({course ->
+        addDisposable(view.actions.onCourseClick.observable().subscribe { course ->
             container.showDetail(course.id)
-        }))
+        })
     }
 
 }

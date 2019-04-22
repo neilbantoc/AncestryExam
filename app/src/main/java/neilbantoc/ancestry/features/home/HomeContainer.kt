@@ -1,13 +1,14 @@
 package neilbantoc.ancestry.features.home
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import neilbantoc.ancestry.base.BaseActivity
+import neilbantoc.ancestry.features.coursedetails.CourseDetailsContainer
 
 class HomeContainer(): HomeContract.Container, BaseActivity() {
-    override fun showDetail(courseId: Number) {
-        Toast.makeText(this, "Course: " + courseId, Toast.LENGTH_LONG).show()
+    override fun showDetail(courseId: Long) {
+        val intent = CourseDetailsContainer.createIntent(this, courseId)
+        startActivity(intent)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

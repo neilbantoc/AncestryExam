@@ -26,6 +26,8 @@ class HomeView() : BaseView<HomeState, HomeContract.View.Actions, ActivityMainBi
 
     class HomeAdapter(val actions: HomeContract.View.Actions) : RecyclerView.Adapter<HomeAdapter.Holder>(), BindableAdapter<List<Course>?> {
 
+        private val items = ArrayList<Course>()
+
         override fun setData(data: List<Course>?) {
             items.clear()
             data?.apply {
@@ -33,8 +35,6 @@ class HomeView() : BaseView<HomeState, HomeContract.View.Actions, ActivityMainBi
             }
             notifyDataSetChanged()
         }
-
-        private val items = ArrayList<Course>()
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeAdapter.Holder {
             val inflater = LayoutInflater.from(parent.context)

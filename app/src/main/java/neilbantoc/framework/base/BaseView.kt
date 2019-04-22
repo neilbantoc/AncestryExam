@@ -18,6 +18,7 @@ abstract class BaseView<S : ViewState, A : ObservableViewActions, D : ViewDataBi
         val inflater = LayoutInflater.from(context)
         layout = inflater.inflate(resId, null)
         dataBinding = DataBindingUtil.bind<D>(layout)!!
+        onViewInitialized()
     }
 
     open fun onViewInitialized() { }
